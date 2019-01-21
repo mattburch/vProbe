@@ -52,7 +52,7 @@ func ifup(eth string, sub int) *status {
 	conf = strings.Replace(conf, "{net}", fmt.Sprintf("%v", net), -1)
 	conf = strings.Replace(conf, "{int}", eth, -1)
 
-	err := ioutil.WriteFile(file, []byte(conf), 0655)
+	err := ioutil.WriteFile(file, []byte(conf), 0644)
 	if err != nil {
 		return &status{
 			stat: fmt.Sprintf("[*] Interface %s File Error: %v", vlan, err),
