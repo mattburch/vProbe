@@ -144,7 +144,7 @@ func arpscan(eth string, sub int, timeout string) *status {
 	ch := make(chan string)
 	re := regexp.MustCompile(`[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}`)
 
-	cmd := exec.Command("timeout", timeout, "ethtool", "-lnni", vlan)
+	cmd := exec.Command("timeout", timeout, "tcpdump", "-lnni", vlan)
 	stderrIn, _ := cmd.StderrPipe()
 
 	cmd.Start()
